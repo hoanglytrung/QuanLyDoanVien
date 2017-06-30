@@ -14,3 +14,14 @@ c:\users\theflash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoa
 c:\users\theflash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\obj\Debug\QuanLyDoanVien.csprojResolveAssemblyReference.cache
 c:\users\theflash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\obj\Debug\Login.g.cs
 c:\users\theflash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\obj\Debug\Login.baml
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\bin\Debug\EntityFramework.dll
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\bin\Debug\System.Data.SQLite.dll
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\bin\Debug\EntityFramework.xml
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\bin\Debug\System.Data.SQLite.xml
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\obj\Debug\Change_Pass.g.cs
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\obj\Debug\Change_Pass.baml

@@ -25,6 +25,24 @@ namespace QuanLyDoanVien
             InitializeComponent();
         }
 
+        Account current_acc = new Account();
+        public MainWindow(Account acc)
+        {
+            current_acc = acc;
+            InitializeComponent();
+        }
+        private void Create_Admin_Account_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Create");
 
+        }
+
+        private void Change_Password_Click(object sender, RoutedEventArgs e)
+        {
+            // MessageBox.Show("Đổi pass");
+            Change_Pass cp = new Change_Pass(current_acc);
+            cp.ShowDialog();
+            
+        }
     }
 }
