@@ -33,8 +33,14 @@ namespace QuanLyDoanVien
         }
         private void Create_Admin_Account_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Create");
-
+            //MessageBox.Show("Create");
+            Admin_List ad_list = new Admin_List(current_acc)
+            {
+                ShowInTaskbar = false
+            };
+            ad_list.Update_DataGrid();
+            ad_list.ShowDialog();
+            ad_list.Topmost = true;
         }
 
         private void Change_Password_Click(object sender, RoutedEventArgs e)

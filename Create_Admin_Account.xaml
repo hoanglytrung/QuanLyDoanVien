@@ -1,0 +1,31 @@
+﻿<Window x:Class="QuanLyDoanVien.Create_Admin_Account"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyDoanVien"
+        mc:Ignorable="d"
+        Title="Tạo tài khoản" Height="333" Width="282">
+    <Grid>
+        <Label Content="Tên tài khoản" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+        <Label Content="Mật khẩu" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top"/>
+        <Label Content="Xác nhận" HorizontalAlignment="Left" Margin="12,174,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="120,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="120,125,0,0" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="120,180,0,0" VerticalAlignment="Top" Width="120"/>
+        <Image HorizontalAlignment="Left" Height="20" Margin="257,181,-65,-11" VerticalAlignment="Top" Width="20"/>
+        <Label Content="Cấp độ" HorizontalAlignment="Left" Margin="10,219,0,0" VerticalAlignment="Top"/>
+        <ListView HorizontalAlignment="Left" Height="26" Margin="120,219,0,0" VerticalAlignment="Top" Width="132">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="Add" Content="Thêm" HorizontalAlignment="Left" Margin="54,262,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Cancle" Content="Thoát" HorizontalAlignment="Left" Margin="152,262,0,0" VerticalAlignment="Top" Width="75"/>
+
+
+
+    </Grid>
+</Window>

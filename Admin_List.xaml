@@ -5,9 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyDoanVien"
         mc:Ignorable="d"
-        Title="Danh sách Admin" Height="600" Width="300">
+        Title="Danh sách Admin" Height="600" Width="300" WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid HorizontalAlignment="Left" Height="433" Margin="10,127,0,0" VerticalAlignment="Top" Width="272"/>
+
+        <DataGrid 
+            x:Name="Admin_DataGrid" HorizontalAlignment="Left" Height="309" Margin="10,251,0,0" VerticalAlignment="Top" Width="272"
+            SelectionMode="Single" SelectionUnit ="FullRow"   SelectionChanged="Admin_DataGrid_SelectionChanged" IsReadOnly="True" />
+        <Button x:Name="Add_admin" Content="Thêm" HorizontalAlignment="Right" Margin="0,224,230,0" VerticalAlignment="Top" Width="52" Click="Add_admin_Click" IsEnabled="False" />
+        <Button x:Name="Modify_admin" Content="Sửa" HorizontalAlignment="Left" Margin="67,224,0,0" VerticalAlignment="Top" Width="52" Click="Modify_admin_Click" IsEnabled="False"/>
+        <Button x:Name="Delete_admin" Content="Xóa" HorizontalAlignment="Left" Margin="124,224,0,0" VerticalAlignment="Top" Width="52" Click="Delete_admin_Click" IsEnabled="False"/>
+        <Label Content="Mã admin" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,19,0,0"/>
+        <Label Content="Họ Tên" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,50,0,0"/>
+        <Label Content="Chức vụ" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,81,0,0"/>
+        <TextBox x:Name="Admin_ID" HorizontalAlignment="Left" Height="23" Margin="91,21,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+        <TextBox x:Name="Admin_Name" HorizontalAlignment="Left" Height="23" Margin="91,52,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+        <TextBox x:Name="Admin_Position" HorizontalAlignment="Left" Height="23" Margin="91,83,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+
+
 
     </Grid>
 </Window>

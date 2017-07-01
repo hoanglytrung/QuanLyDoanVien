@@ -25,3 +25,11 @@ C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoa
 C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\obj\Debug\Change_Pass.g.cs
 C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\obj\Debug\Change_Pass.baml
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\obj\Debug\Admin_List.g.cs
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\obj\Debug\Admin_List.baml
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\bin\Debug\AdvancedDataGridView.dll
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\bin\Debug\AdvancedDataGridView.xml
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\bin\Debug\fr\AdvancedDataGridView.resources.dll
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\bin\Debug\ru\AdvancedDataGridView.resources.dll
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\obj\Debug\Create_Admin_Account.g.cs
+C:\Users\TheFlash\documents\visual studio 2017\Projects\QuanLyDoanVien\QuanLyDoanVien\obj\Debug\Create_Admin_Account.baml
