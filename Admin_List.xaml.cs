@@ -26,7 +26,7 @@ namespace QuanLyDoanVien
             InitializeComponent();
         }
         public Account current_acc = new Account();
-
+        int Selected_ID;
         public Admin_List(Account acc)
         {
             InitializeComponent();
@@ -38,6 +38,7 @@ namespace QuanLyDoanVien
                 Modify_admin.IsEnabled = true;
                 Delete_admin.IsEnabled = true;
             }
+
         }
         public void Update_DataGrid()
         {
@@ -81,13 +82,20 @@ namespace QuanLyDoanVien
             {
                 Admin_ID.Text = row_selected["ID"].ToString();
                 Admin_Name.Text = row_selected["User"].ToString();
+                Selected_ID = Int32.Parse(row_selected["ID"].ToString());
                 //Admin_Position.Text = row_selected["Chức vụ"].ToString();
             }
         }
 
+
+
         private void Add_admin_Click(object sender, RoutedEventArgs e)
         {
-
+            Create_Admin_Account cre_ad = new Create_Admin_Account();
+            cre_ad.Owner = this;
+            cre_ad.ShowDialog();
+            cre_ad.ShowInTaskbar = false;
+            cre_ad.Topmost = true;
         }
 
         private void Modify_admin_Click(object sender, RoutedEventArgs e)
@@ -97,7 +105,20 @@ namespace QuanLyDoanVien
 
         private void Delete_admin_Click(object sender, RoutedEventArgs e)
         {
+            Delete(Selected_ID); 
+        }
 
+        private void Delete(int Selected_ID)
+        {
+            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = admin.db");
+            SQLiteCommand sqlite_com = new SQLiteCommand();
+            sqlite_conn.Open();
+            sqlite_com = sqlite_conn.CreateCommand();
+            sqlite_com.CommandText = "delete from admin_acc where ID = '" + Selected_ID + "' ";
+            sqlite_com.ExecuteNonQuery();
+
+            sqlite_conn.Close();
+            Update_DataGrid();
         }
     }
 }

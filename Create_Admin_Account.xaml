@@ -5,25 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyDoanVien"
         mc:Ignorable="d"
-        Title="Tạo tài khoản" Height="333" Width="282">
+        Title="Tạo tài khoản" Height="333" Width="295" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Label Content="Tên tài khoản" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
         <Label Content="Mật khẩu" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top"/>
         <Label Content="Xác nhận" HorizontalAlignment="Left" Margin="12,174,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="120,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="120,125,0,0" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="120,180,0,0" VerticalAlignment="Top" Width="120"/>
-        <Image HorizontalAlignment="Left" Height="20" Margin="257,181,-65,-11" VerticalAlignment="Top" Width="20"/>
-        <Label Content="Cấp độ" HorizontalAlignment="Left" Margin="10,219,0,0" VerticalAlignment="Top"/>
-        <ListView HorizontalAlignment="Left" Height="26" Margin="120,219,0,0" VerticalAlignment="Top" Width="132">
+        <TextBox x:Name="tb_UserName" HorizontalAlignment="Left" Height="24" Margin="120,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="tb_UserName_TextChanged"/>
+        <PasswordBox x:Name="ps_Password" HorizontalAlignment="Left" Margin="120,125,0,0" VerticalAlignment="Top" Width="120" PasswordChanged="ps_Password_PasswordChanged"/>
+        <PasswordBox x:Name="ps_Confirm_Password" HorizontalAlignment="Left" Margin="120,180,0,0" VerticalAlignment="Top" Width="120" PasswordChanged="ps_Confirm_Password_PasswordChanged"/>
+        <Image x:Name="Tick" HorizontalAlignment="Left" Height="20" Margin="250,180,0,0" VerticalAlignment="Top" Width="20"/>
+        <Label Content="Chức vụ" HorizontalAlignment="Left" Margin="10,219,0,0" VerticalAlignment="Top"/>
+        <ListView HorizontalAlignment="Left" Height="26" Margin="120,219,0,0" VerticalAlignment="Top" Width="120">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="Add" Content="Thêm" HorizontalAlignment="Left" Margin="54,262,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Cancle" Content="Thoát" HorizontalAlignment="Left" Margin="152,262,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="bt_Add" Content="Thêm" HorizontalAlignment="Left" Margin="54,262,0,0" VerticalAlignment="Top" Width="75" Click="bt_Add_Click"/>
+        <Button x:Name="bt_Cancle" Content="Thoát" HorizontalAlignment="Left" Margin="152,262,0,0" VerticalAlignment="Top" Width="75" Click="bt_Cancle_Click"/>
 
 
 

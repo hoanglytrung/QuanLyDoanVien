@@ -36,7 +36,7 @@ namespace QuanLyDoanVien
         private void Change_Click(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show(current_acc.User);
-            if (ps_CurrentPass.Password == current_acc.Pass)
+            if (ps_CurrentPass.Password == current_acc.Pass )
             {
                 if (Compare_password == true)
                 {
