@@ -80,8 +80,8 @@ namespace QuanLyDoanVien
             DataRowView row_selected = dg.SelectedItem as DataRowView;
             if (row_selected != null)
             {
-                Admin_ID.Text = row_selected["ID"].ToString();
-                Admin_Name.Text = row_selected["User"].ToString();
+                tb_Admin_ID.Text = row_selected["ID"].ToString();
+                tb_Admin_Name.Text = row_selected["User"].ToString();
                 Selected_ID = Int32.Parse(row_selected["ID"].ToString());
                 //Admin_Position.Text = row_selected["Chức vụ"].ToString();
             }
@@ -100,7 +100,21 @@ namespace QuanLyDoanVien
 
         private void Modify_admin_Click(object sender, RoutedEventArgs e)
         {
+            tb_Admin_Name.IsEnabled = tb_Admin_Position.IsEnabled = true;
+            Modify(Selected_ID);
+        }
 
+        private void Modify(int Selected_ID)
+        {
+            if (tb_Admin_Name.Text != "" && tb_Admin_Position.Text != "")
+            {
+                //SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = admin.db");
+                //SQLiteCommand sqlite_com = new SQLiteCommand();
+                //sqlite_conn.Open();
+                //sqlite_com = sqlite_conn.CreateCommand();
+                //sqlite_com.CommandText = "update admin_acc set ";
+                //sqlite_com.ExecuteNonQuery();
+            }
         }
 
         private void Delete_admin_Click(object sender, RoutedEventArgs e)

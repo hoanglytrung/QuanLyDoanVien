@@ -17,9 +17,9 @@
         <Label Content="Mã admin" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,19,0,0"/>
         <Label Content="Họ Tên" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,50,0,0"/>
         <Label Content="Chức vụ" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,81,0,0"/>
-        <TextBox x:Name="Admin_ID" HorizontalAlignment="Left" Height="23" Margin="91,21,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" IsEnabled="False"/>
-        <TextBox x:Name="Admin_Name" HorizontalAlignment="Left" Height="23" Margin="91,52,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" IsEnabled="False"/>
-        <TextBox x:Name="Admin_Position" HorizontalAlignment="Left" Height="23" Margin="91,83,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+        <TextBox x:Name="tb_Admin_ID" HorizontalAlignment="Left" Height="23" Margin="91,21,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+        <TextBox x:Name="tb_Admin_Name" HorizontalAlignment="Left" Height="23" Margin="91,52,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+        <TextBox x:Name="tb_Admin_Position" HorizontalAlignment="Left" Height="23" Margin="91,83,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="143" IsEnabled="False"/>
 
 
 
