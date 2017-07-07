@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("photo/redx.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("photo/female.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("photo/male.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("photo/x.png")]
 
 

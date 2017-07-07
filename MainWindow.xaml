@@ -1,77 +1,81 @@
-﻿<Window x:Class="QuanLyDoanVien.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:dg="http://schemas.microsoft.com/wpf/2008/toolkit"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyDoanVien"
+        xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid" x:Class="QuanLyDoanVien.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525"
+        Title="MainWindow" Height="700" Width="1120"
         WindowState="Maximized"  >
-    <Window.Resources>
-        <Style x:Key="NoChromeButton" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="1"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Grid x:Name="Chrome" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Foreground" Value="#ADADAD"/>
-                                <Setter Property="Opacity" TargetName="Chrome" Value="0.5"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
     <Grid>
-        <TabControl Height="128" VerticalAlignment="Top">
+        <TabControl Height="660" VerticalAlignment="Top">
             <TabItem Header="Quản lý hệ thống" HorizontalAlignment="Left" Width="114" Margin="-2,-2,-25,-1">
                 <Grid Background="#FFE5E5E5">
                     <Label Content="Đổi mật khẩu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,68,0,0" Width="68" FontSize="9"/>
                     <Label Content="Tạo tài khoản" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="68,68,0,0" Width="68" FontSize="9"/>
-                    <Button Name="Create_Admin_Account" Click="Create_Admin_Account_Click" Margin="68,0,0,28" Foreground="#ADADAD" Background="Transparent" BorderThickness="1" Height="68" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="68">
-                        <StackPanel Height="68" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="68">
-                            <Image Source="Photo/add.png" HorizontalAlignment="Right" VerticalAlignment="Center" Height="68" Width="68"/>
-                        </StackPanel>
+                    <Button x:Name="Create_Admin_Account" Click="Create_Admin_Account_Click" Margin="68,0,0,558" Foreground="#ADADAD" Background="Transparent" BorderThickness="1" HorizontalAlignment="Left" Width="68">
                         <Button.Template>
-                            <ControlTemplate TargetType="Button">
+                            <ControlTemplate TargetType="{x:Type Button}">
                                 <Grid>
                                     <ContentPresenter/>
                                 </Grid>
                             </ControlTemplate>
                         </Button.Template>
+                        <StackPanel Height="68" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="68">
+                            <Image Source="Photo/add.png" VerticalAlignment="Center" Height="68"/>
+                        </StackPanel>
                     </Button>
 
-                    <Button Name="Change_Password" Click="Change_Password_Click" Margin="0,0,0,28" Foreground="#ADADAD" Background="Transparent" BorderThickness="1" Height="68" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="68">
-                        <StackPanel>
-                            <Image Source="Photo/cp.gif" HorizontalAlignment="Left" VerticalAlignment="Center" Height="68" Width="68" Margin="0,0,0,0"/>
-                        </StackPanel>
+                    <Button x:Name="Change_Password" Click="Change_Password_Click" Margin="0,0,0,558" Foreground="#ADADAD" Background="Transparent" BorderThickness="1" Height="68" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="68">
                         <Button.Template>
-                            <ControlTemplate TargetType="Button">
+                            <ControlTemplate TargetType="{x:Type Button}">
                                 <Grid>
                                     <ContentPresenter/>
                                 </Grid>
                             </ControlTemplate>
                         </Button.Template>
+                        <StackPanel>
+                            <Image Source="Photo/cp.gif" VerticalAlignment="Center" Height="68" Margin="0,0,0,0"/>
+                        </StackPanel>
                     </Button>
                 </Grid>
             </TabItem>
             <TabItem Header="Quản lý đoàn viên" Height="20" VerticalAlignment="Top" RenderTransformOrigin="0.722,0.542" Margin="-2,-2,-8,0">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Đoàn Viên" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,68,0,0" Width="68" FontSize="9" HorizontalContentAlignment="Center"/>
+                    <Button x:Name="Doan_Vien" Margin="0,0,0,558" Foreground="#ADADAD" Background="Transparent" BorderThickness="1" Height="68" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="68" Click="Doan_Vien_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Grid>
+                                    <ContentPresenter/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <StackPanel Height="68" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="68">
+                            <Image Source="Photo/x.png" HorizontalAlignment="Right" VerticalAlignment="Center" Height="68" Width="68"/>
+                        </StackPanel>
+                    </Button>
+                    <xcdg:DataGridControl x:Name="dg_DoanVien" HorizontalAlignment="Left" Height="446" Margin="10,120,0,0" VerticalAlignment="Top" Width="481" EditTriggers="None" ReadOnly="True">
+                        <xcdg:DataGridControl.View>
+                            <xcdg:TableflowView>
+                                <xcdg:TableflowView.FixedHeaders>
+                                    <DataTemplate>
+                                        <xcdg:FilterRow/>
+                                    </DataTemplate>
+                                </xcdg:TableflowView.FixedHeaders>
+                                <xcdg:TableflowView.Theme>
+                                    <xcdg:Windows10Theme/>
+                                </xcdg:TableflowView.Theme>
+                            </xcdg:TableflowView>
+                        </xcdg:DataGridControl.View>
+                    </xcdg:DataGridControl>
+                </Grid>
             </TabItem>
 
 
         </TabControl>
-
     </Grid>
 
 

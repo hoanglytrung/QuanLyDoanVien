@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Wpf.Controls;
+using System.Diagnostics;
 namespace QuanLyDoanVien
 {
     /// <summary>
@@ -50,5 +53,54 @@ namespace QuanLyDoanVien
             cp.ShowDialog();
             
         }
+
+        private void Doan_Vien_Click(object sender, RoutedEventArgs e)
+        {
+            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = admin.db");
+            sqlite_conn.Open();
+            string Query = "select ID, User, Level from admin_acc";
+            SQLiteCommand sqlite_com = new SQLiteCommand(Query, sqlite_conn);
+            sqlite_com.ExecuteNonQuery();
+
+            SQLiteDataAdapter sqlite_adp = new SQLiteDataAdapter(sqlite_com);
+            DataTable dt = new DataTable("admin_acc");
+            sqlite_adp.Fill(dt);
+            dg_DoanVien.ItemsSource = dt.DefaultView;
+            sqlite_adp.Update(dt);
+            sqlite_conn.Close();
+        }
+
+        //private int count = 1;
+        //void tabControl_TabItemAdded(object sender, TabItemEventArgs e)
+        //{
+        //    // Add an Icon to the tabItem
+        //    BitmapImage image = new BitmapImage(new Uri("pack://application:,,,/Test;component/Images/ie.ico"));
+        //    Image img = new Image();
+        //    img.Source = image;
+        //    img.Width = 16;
+        //    img.Height = 16;
+        //    img.Margin = new Thickness(2, 0, 2, 0);
+
+        //    e.TabItem.Icon = img;
+
+        //    // wrap the header in a textblock, this gives us the  character ellipsis (...) when trimmed
+        //    TextBlock tb = new TextBlock();
+        //    tb.Text = "New Tab " + count++;
+        //    tb.TextTrimming = TextTrimming.CharacterEllipsis;
+        //    tb.TextWrapping = TextWrapping.NoWrap;
+
+        //    e.TabItem.Header = tb;
+
+        //    // add a WebControl to the TAbItem
+        //    WindowsFormsHost host = new WindowsFormsHost();
+        //    host.Margin = new Thickness(2);
+        //    System.Windows.Forms.WebBrowser browser = new System.Windows.Forms.WebBrowser();
+        //    browser.DocumentTitleChanged += Browser_DocumentTitleChanged;
+        //    browser.Navigated += Browser_Navigated;
+
+        //    host.Child = browser;
+        //    e.TabItem.Content = host;
+        //}
+
     }
 }
