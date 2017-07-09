@@ -16,7 +16,7 @@ namespace QuanLyDoanVien
 
         public void Update_Password()
         {
-            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = admin.db");
+            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = QuanLyDoanVien.db");
             SQLiteCommand sqlite_cmd;
             sqlite_conn.Open();
             sqlite_cmd = sqlite_conn.CreateCommand();

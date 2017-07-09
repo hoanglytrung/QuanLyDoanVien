@@ -20,7 +20,7 @@ namespace QuanLyDoanVien
     public partial class Login : Window
     {
 
-        SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = admin.db");
+        SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = QuanLyDoanVien.db");
         SQLiteCommand sqlite_cmd;
 
         Account current_acc = new Account();

@@ -33,7 +33,7 @@ namespace QuanLyDoanVien
         {
             if (tb_UserName.Text != "" && ps_Password.Password != "" && ps_Confirm_Password.Password != "" && Compare_password == true)
             {
-                SQLiteConnection sqlite_conn = new SQLiteConnection("Data source = admin.db");
+                SQLiteConnection sqlite_conn = new SQLiteConnection("Data source = QuanLyDoanVien.db");
                 SQLiteCommand sqlite_com = new SQLiteCommand();
                 sqlite_conn.Open();
                 sqlite_com = sqlite_conn.CreateCommand();

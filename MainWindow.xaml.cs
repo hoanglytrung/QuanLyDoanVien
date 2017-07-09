@@ -56,18 +56,51 @@ namespace QuanLyDoanVien
 
         private void Doan_Vien_Click(object sender, RoutedEventArgs e)
         {
-            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = admin.db");
+            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = QuanLyDoanVien.db");
             sqlite_conn.Open();
-            string Query = "select ID, User, Level from admin_acc";
+            string Query = "select * from DoanVien";
             SQLiteCommand sqlite_com = new SQLiteCommand(Query, sqlite_conn);
             sqlite_com.ExecuteNonQuery();
 
             SQLiteDataAdapter sqlite_adp = new SQLiteDataAdapter(sqlite_com);
-            DataTable dt = new DataTable("admin_acc");
+            DataTable dt = new DataTable("DoanVien");
             sqlite_adp.Fill(dt);
             dg_DoanVien.ItemsSource = dt.DefaultView;
             sqlite_adp.Update(dt);
             sqlite_conn.Close();
+        }
+
+        private void dg_DoanVien_SelectionChanged(object sender, Xceed.Wpf.DataGrid.DataGridSelectionChangedEventArgs e)
+        {
+            Xceed.Wpf.DataGrid.DataGridControl dg = (Xceed.Wpf.DataGrid.DataGridControl)sender;
+            //DataGrid dg1 = (DataGrid)sender;
+            Xceed.Wpf.DataGrid.DataRow row_selected = dg.SelectedItem as Xceed.Wpf.DataGrid.DataRow;
+            //DataRowView row_selected = dg1.SelectedItem as DataRowView;
+            if (row_selected != null)
+            {
+                MaDoanVien.Text = row_selected["ID"].ToString();
+                HoTen.Text = row_selected["Hoten"].ToString();
+                NgaySinh.Text = row_selected["Ngaysinh"].ToString();
+                QueQuan.Text = row_selected["Quequan"].ToString();
+                GioiTinh.Text = row_selected["Gioitinh"].ToString();
+                ChiDoan.Text = row_selected["Chidoan"].ToString();
+                ChucVu.Text = row_selected["Chucvu"].ToString();
+                ToDanPho.Text = row_selected["Todanpho"].ToString();
+                PhuongXa.Text = row_selected["Phuong_Xa"].ToString();
+                QuanHuyen.Text = row_selected["Quan_Huyen"].ToString();
+                TinhThanh.Text = row_selected["Tinh_Thanh"].ToString();
+                NgayVaoDang.Text = row_selected["Ngayvaodoan"].ToString();
+                NgayVaoDang.Text = row_selected["Ngayvaodang"].ToString();
+                TinhTrang.Text = row_selected["Tinhtrang"].ToString();
+                CMND.Text = row_selected["CMND"].ToString();
+                Email.Text = row_selected["Email"].ToString();
+                DienThoai.Text = row_selected["Dienthoai"].ToString() ;
+                DanToc.Text = row_selected["Dantoc"].ToString();
+                TonGiao.Text = row_selected["Tongiao"].ToString();
+                HoanCanh.Text = row_selected["Hoancanh"].ToString();
+                TrinhDo.Text = row_selected["Trinhdo"].ToString();
+                
+            }
         }
 
         //private int count = 1;

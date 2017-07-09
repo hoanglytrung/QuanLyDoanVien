@@ -42,7 +42,7 @@ namespace QuanLyDoanVien
         }
         public void Update_DataGrid()
         {
-            //SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = admin.db");
+            //SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = QuanLyDoanVien.db");
             //DataSet dataSet = new DataSet();
             //SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter("SELECT * From admin_acc", sqlite_conn);
             //dataAdapter.Fill(dataSet);
@@ -53,7 +53,7 @@ namespace QuanLyDoanVien
 
             //sqlite_conn.Close();
 
-            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = admin.db");
+            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = QuanLyDoanVien.db");
             sqlite_conn.Open();
             string Query = "select ID, User, Level from admin_acc";
             SQLiteCommand sqlite_com = new SQLiteCommand(Query, sqlite_conn);
@@ -108,7 +108,7 @@ namespace QuanLyDoanVien
         {
             if (tb_Admin_Name.Text != "" && tb_Admin_Position.Text != "")
             {
-                //SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = admin.db");
+                //SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = QuanLyDoanVien.db");
                 //SQLiteCommand sqlite_com = new SQLiteCommand();
                 //sqlite_conn.Open();
                 //sqlite_com = sqlite_conn.CreateCommand();
@@ -124,7 +124,7 @@ namespace QuanLyDoanVien
 
         private void Delete(int Selected_ID)
         {
-            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = admin.db");
+            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = QuanLyDoanVien.db");
             SQLiteCommand sqlite_com = new SQLiteCommand();
             sqlite_conn.Open();
             sqlite_com = sqlite_conn.CreateCommand();
@@ -134,5 +134,7 @@ namespace QuanLyDoanVien
             sqlite_conn.Close();
             Update_DataGrid();
         }
+
+
     }
 }
