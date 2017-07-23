@@ -29,6 +29,7 @@ namespace QuanLyDoanVien
         }
 
         Account current_acc = new Account();
+        int Selected_ID;
         public MainWindow(Account acc)
         {
             current_acc = acc;
@@ -70,16 +71,14 @@ namespace QuanLyDoanVien
             sqlite_conn.Close();
         }
 
-        private void dg_DoanVien_SelectionChanged(object sender, Xceed.Wpf.DataGrid.DataGridSelectionChangedEventArgs e)
+        private void dg_DoanVien_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Xceed.Wpf.DataGrid.DataGridControl dg = (Xceed.Wpf.DataGrid.DataGridControl)sender;
-            //DataGrid dg1 = (DataGrid)sender;
-            Xceed.Wpf.DataGrid.DataRow row_selected = dg.SelectedItem as Xceed.Wpf.DataGrid.DataRow;
-            //DataRowView row_selected = dg1.SelectedItem as DataRowView;
+            DataGrid dg1 = (DataGrid)sender;
+            DataRowView row_selected = dg1.SelectedItem as DataRowView;
             if (row_selected != null)
             {
                 MaDoanVien.Text = row_selected["ID"].ToString();
-                HoTen.Text = row_selected["Hoten"].ToString();
+                HoVaTen.Text = row_selected["Hoten"].ToString();
                 NgaySinh.Text = row_selected["Ngaysinh"].ToString();
                 QueQuan.Text = row_selected["Quequan"].ToString();
                 GioiTinh.Text = row_selected["Gioitinh"].ToString();
@@ -89,19 +88,209 @@ namespace QuanLyDoanVien
                 PhuongXa.Text = row_selected["Phuong_Xa"].ToString();
                 QuanHuyen.Text = row_selected["Quan_Huyen"].ToString();
                 TinhThanh.Text = row_selected["Tinh_Thanh"].ToString();
-                NgayVaoDang.Text = row_selected["Ngayvaodoan"].ToString();
+                NgayVaoDoan.Text = row_selected["Ngayvaodoan"].ToString();
                 NgayVaoDang.Text = row_selected["Ngayvaodang"].ToString();
                 TinhTrang.Text = row_selected["Tinhtrang"].ToString();
                 CMND.Text = row_selected["CMND"].ToString();
                 Email.Text = row_selected["Email"].ToString();
-                DienThoai.Text = row_selected["Dienthoai"].ToString() ;
+                DienThoai.Text = row_selected["Dienthoai"].ToString();
                 DanToc.Text = row_selected["Dantoc"].ToString();
                 TonGiao.Text = row_selected["Tongiao"].ToString();
                 HoanCanh.Text = row_selected["Hoancanh"].ToString();
                 TrinhDo.Text = row_selected["Trinhdo"].ToString();
-                
+
+                Selected_ID = Int32.Parse(MaDoanVien.Text);
             }
         }
+
+        bool Add = false;
+        private void Add_DoanVien_Click(object sender, RoutedEventArgs e)
+        {
+            Add = true;
+
+            Add_DoanVien.IsEnabled = false;
+            Mod_DoanVien.IsEnabled = false;
+
+            SQLiteConnection sqlite_conn = new SQLiteConnection("Data source = QuanLyDoanVien.db");
+            SQLiteCommand sqlite_com = new SQLiteCommand();
+            sqlite_conn.Open();
+            sqlite_com = sqlite_conn.CreateCommand();
+
+            sqlite_com.CommandText = "SELECT Max(ID) FROM DoanVien";
+            MaDoanVien.Text = (Convert.ToInt32(sqlite_com.ExecuteScalar()) + 1).ToString();
+
+         
+
+            HoVaTen.IsEnabled = NgaySinh.IsEnabled = QueQuan.IsEnabled = 
+            GioiTinh.IsEnabled = ChiDoan.IsEnabled = ChucVu.IsEnabled = ToDanPho.IsEnabled =
+            PhuongXa.IsEnabled = QuanHuyen.IsEnabled = TinhThanh.IsEnabled = NgayVaoDang.IsEnabled = 
+            NgayVaoDoan.IsEnabled = TinhTrang.IsEnabled = CMND.IsEnabled = Email.IsEnabled = 
+            DienThoai.IsEnabled = DanToc.IsEnabled = TonGiao.IsEnabled = HoanCanh.IsEnabled = TrinhDo.IsEnabled 
+            = true;
+
+            HoVaTen.Clear();
+            NgaySinh.Clear(); QueQuan.Clear();
+            GioiTinh.Clear(); ChiDoan.Clear(); ChucVu.Clear(); ToDanPho.Clear();
+            PhuongXa.Clear(); QuanHuyen.Clear(); TinhThanh.Clear(); NgayVaoDang.Clear();
+            NgayVaoDoan.Clear(); TinhTrang.Clear(); CMND.Clear(); Email.Clear();
+            DienThoai.Clear(); DanToc.Clear(); TonGiao.Clear(); HoanCanh.Clear(); TrinhDo.Clear();
+
+
+        }
+        public void Update_DataGrid()
+        {
+            //SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = QuanLyDoanVien.db");
+            //DataSet dataSet = new DataSet();
+            //SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter("SELECT * From admin_acc", sqlite_conn);
+            //dataAdapter.Fill(dataSet);
+            //DataTable dt = new DataTable("admin_acc");
+            ////DtGrid.ItemsSource = dataSet.Tables[0].DefaultView;
+            //DtGrid.ItemsSource = dt.DefaultView;
+            //dataAdapter.Update(dt);
+
+            //sqlite_conn.Close();
+
+            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = QuanLyDoanVien.db");
+            sqlite_conn.Open();
+            string Query = "select * from DoanVien";
+            SQLiteCommand sqlite_com = new SQLiteCommand(Query, sqlite_conn);
+            sqlite_com.ExecuteNonQuery();
+
+            SQLiteDataAdapter sqlite_adp = new SQLiteDataAdapter(sqlite_com);
+            DataTable dt = new DataTable("DoanVien");
+            sqlite_adp.Fill(dt);
+            dg_DoanVien.ItemsSource = dt.DefaultView;
+            sqlite_adp.Update(dt);
+            sqlite_conn.Close();
+        }
+
+        bool Mod = false;
+        private void Mod_DoanVien_Click(object sender, RoutedEventArgs e)
+        {
+            Add_DoanVien.IsEnabled = false;
+            Mod_DoanVien.IsEnabled = false;
+            MaDoanVien.IsEnabled = HoVaTen.IsEnabled = NgaySinh.IsEnabled = QueQuan.IsEnabled =
+            GioiTinh.IsEnabled = ChiDoan.IsEnabled = ChucVu.IsEnabled = ToDanPho.IsEnabled =
+            PhuongXa.IsEnabled = QuanHuyen.IsEnabled = TinhThanh.IsEnabled = NgayVaoDang.IsEnabled =
+            NgayVaoDoan.IsEnabled = TinhTrang.IsEnabled = CMND.IsEnabled = Email.IsEnabled =
+            DienThoai.IsEnabled = DanToc.IsEnabled = TonGiao.IsEnabled = HoanCanh.IsEnabled = TrinhDo.IsEnabled
+            = true;
+
+            Mod = true;
+        }
+
+        private void Del_DoanVien_Click(object sender, RoutedEventArgs e)
+        {
+            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = QuanLyDoanVien.db");
+            SQLiteCommand sqlite_com = new SQLiteCommand();
+            sqlite_conn.Open();
+            sqlite_com = sqlite_conn.CreateCommand();
+            sqlite_com.CommandText = "delete from DoanVien where ID = '" + Selected_ID + "' ";
+            sqlite_com.ExecuteNonQuery();
+
+            sqlite_conn.Close();
+            Update_DataGrid();
+        }
+
+        private void Update_row(string row, string text)
+        {
+            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = QuanLyDoanVien.db");
+            SQLiteCommand sqlite_com = new SQLiteCommand();
+            sqlite_conn.Open();
+            sqlite_com = sqlite_conn.CreateCommand();
+            sqlite_com.CommandText = "Update DoanVien " + "set '" + row + "' = '" + text + "' ";
+            sqlite_com.ExecuteNonQuery();
+
+            sqlite_conn.Close();
+            Update_DataGrid();
+
+        }
+        private void Insert_row(string col, string value)
+        {
+            SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = QuanLyDoanVien.db");
+            SQLiteCommand sqlite_com = new SQLiteCommand();
+            sqlite_conn.Open();
+            sqlite_com = sqlite_conn.CreateCommand();
+            sqlite_com.CommandText = "insert into DoanVien( '" + col +"' ) values ( '"+ value +"' )";
+            sqlite_com.ExecuteNonQuery();
+
+            sqlite_conn.Close();
+            Update_DataGrid();
+
+        }
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            if (Add == true)
+            {
+                SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source = QuanLyDoanVien.db");
+                SQLiteCommand sqlite_com = new SQLiteCommand();
+                sqlite_conn.Open();
+                sqlite_com = sqlite_conn.CreateCommand();
+                sqlite_com.CommandText = "insert into DoanVien values ( '" + MaDoanVien.Text + "', '" + HoVaTen.Text + "', " +
+                                                                        "'" + NgaySinh.Text + "', '" + QueQuan.Text + "',  '" + GioiTinh.Text + "', '" + ChiDoan.Text + "', " +
+                                                                        "'" + ChucVu.Text + "', '" + ToDanPho.Text + "', '" + PhuongXa.Text + "', '" + QuanHuyen.Text + "', " +
+                                                                        "'" + TinhThanh.Text + "', '" + NgayVaoDoan.Text + "',  '" + NgayVaoDang.Text + "', '" + TinhTrang.Text + "', " +
+                                                                        "'" + CMND.Text + "', '" + Email.Text + "', '" + DienThoai.Text + "', '" + DanToc.Text + "', " +
+                                                                        "'" + TonGiao.Text + "', '" + HoanCanh.Text + "', '" + TrinhDo.Text + "')";
+                sqlite_com.ExecuteNonQuery();
+
+                sqlite_conn.Close();
+                Update_DataGrid();
+
+                Add_DoanVien.IsEnabled = true;
+                Mod_DoanVien.IsEnabled = true;
+            }
+
+            if (Mod == true)
+            {
+                Update_row("Hoten", HoVaTen.Text);
+                Update_row("Ngaysinh", NgaySinh.Text);
+                Update_row("Quequan", QueQuan.Text);
+                Update_row("Gioitinh", GioiTinh.Text);
+                Update_row("Chidoan", ChiDoan.Text);
+                Update_row("Chucvu", ChucVu.Text);
+                Update_row("Todanpho", ToDanPho.Text);
+                Update_row("Phuong_Xa", PhuongXa.Text);
+                Update_row("Quan_Huyen", QuanHuyen.Text);
+                Update_row("Tinh_Thanh", TinhThanh.Text);
+                Update_row("Ngayvaodoan", NgayVaoDoan.Text);
+                Update_row("Ngayvaodang", NgayVaoDang.Text);
+                Update_row("Tinhtrang", TinhTrang.Text);
+                Update_row("CMND", CMND.Text);
+                Update_row("Email", Email.Text);
+                Update_row("Dienthoai", DienThoai.Text);
+                Update_row("Dantoc", DanToc.Text);
+                Update_row("Tongiao", TonGiao.Text);
+                Update_row("Hoancanh", HoanCanh.Text);
+                Update_row("Trinhdo", TrinhDo.Text);
+
+                MaDoanVien.IsEnabled = HoVaTen.IsEnabled = NgaySinh.IsEnabled = QueQuan.IsEnabled =
+               GioiTinh.IsEnabled = ChiDoan.IsEnabled = ChucVu.IsEnabled = ToDanPho.IsEnabled =
+               PhuongXa.IsEnabled = QuanHuyen.IsEnabled = TinhThanh.IsEnabled = NgayVaoDang.IsEnabled =
+               NgayVaoDoan.IsEnabled = TinhTrang.IsEnabled = CMND.IsEnabled = Email.IsEnabled =
+               DienThoai.IsEnabled = DanToc.IsEnabled = TonGiao.IsEnabled = HoanCanh.IsEnabled = TrinhDo.IsEnabled
+               = false;
+                Mod = false;
+
+                Add_DoanVien.IsEnabled = true;
+                Mod_DoanVien.IsEnabled = true;
+            }
+        }
+
+        private void Cancle_Click(object sender, RoutedEventArgs e)
+        {
+            Add_DoanVien.IsEnabled = true;
+            Mod_DoanVien.IsEnabled = true;
+
+            MaDoanVien.IsEnabled = HoVaTen.IsEnabled = NgaySinh.IsEnabled = QueQuan.IsEnabled =
+            GioiTinh.IsEnabled = ChiDoan.IsEnabled = ChucVu.IsEnabled = ToDanPho.IsEnabled =
+            PhuongXa.IsEnabled = QuanHuyen.IsEnabled = TinhThanh.IsEnabled = NgayVaoDang.IsEnabled =
+            NgayVaoDoan.IsEnabled = TinhTrang.IsEnabled = CMND.IsEnabled = Email.IsEnabled =
+            DienThoai.IsEnabled = DanToc.IsEnabled = TonGiao.IsEnabled = HoanCanh.IsEnabled = TrinhDo.IsEnabled
+            = false;
+        }
+
+
 
         //private int count = 1;
         //void tabControl_TabItemAdded(object sender, TabItemEventArgs e)
